@@ -42,15 +42,6 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-  <style>
-    #chart-container { 
-      width: 600px; 
-      height: 600px; 
-      margin: 2rem auto; 
-    }
-  </style>
 </head>
 
 <body>
@@ -66,29 +57,25 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://chengyou-jia.github.io/" target="_blank">Chengyou Jia</a><sup>*</sup>,</span>
-              <span class="author-block">
-                <a href="https://king-wood-shen.github.io/Xin-Shen.github.io/" target="_blank">Xin Shen</a><sup>*</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=8qX4Z5IAAAAJ" target="_blank">Zhuohang Dang</a>,
+                <a href="https://chengyou-jia.github.io/" target="_blank">Bowen Ping</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="#" target="_blank">Changliang Xia</a>,
+                <a href="https://chengyou-jia.github.io/" target="_blank">Chengyou Jia</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://weijiawu.github.io/" target="_blank">Weijia Wu</a>,
+                <a href="https://scholar.google.com/citations?hl=zh-CN&user=C3ujEF0AAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Minnan Luo</a><sup>1,†</sup>
               </span>
               <span class="author-block">
-                <a href="#" target="_blank">Xinyu Zhang</a>,
+                <a href="#" target="_blank">Changliang Xia</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://hangwei12358.github.io/" target="_blank">Huangwei Qian</a>,
+                <a href="https://king-wood-shen.github.io/Xin-Shen.github.io/" target="_blank">Xin Shen</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://www.a-star.edu.sg/cfar/about-cfar/management/prof-ivor-tsang" target="_blank">Ivor Tsang</a>,
+                <a href="https://scholar.google.com/citations?user=8qX4Z5IAAAAJ" target="_blank">Zhuohang Dang</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?hl=zh-CN&user=C3ujEF0AAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Minnan Luo</a>
+                <a href="https://hangwei12358.github.io/" target="_blank">Huangwei Qian</a><sup>2</sup>,
               </span>
             </div>
 
@@ -96,7 +83,12 @@
               <span class="author-block"><a href="https://chengyou-jia.github.io/">Chengyou Jia</a></span>
               <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
             <!-- </div> --> 
-
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Xi'an Jiaotong University</span>
+              <span class="author-block"><sup>2</sup>CFAR, A*STAR</span>
+              <br>
+              <span class="eql-cntrb"><small><sup>†</sup>Corresponding Author.</small></span>
+            </div>
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- Arxiv PDF link -->
@@ -151,21 +143,6 @@
   </section>
 
 
-  <!-- Teaser video-->
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <video poster="" id="tree" autoplay controls muted loop height="100%">
-          <!-- Your video here -->
-          <source src="static/videos/video.pptx.mp4" type="video/mp4">
-        </video>
-        <h2 class="subtitle has-text-centered">
-
-        </h2>
-      </div>
-    </div>
-  </section>
-  <!-- End teaser video -->
 
   <!-- Paper abstract -->
   <section class="section hero is-light">
@@ -175,23 +152,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Despite remarkable progress in Text-to-Image models, many real-world applications require generating
-              coherent image sets with diverse consistency requirements. Existing consistent methods often focus on a
-              specific domain with specific aspects of consistency, which significantly constrains their
-              generalizability to broader applications. In this paper, we propose a more challenging problem,
-              Text-to-ImageSet (T2IS) generation, which aims to generate sets of images that meet various consistency
-              requirements based on user instructions. To systematically study this problem, we first introduce
-              T2IS-Bench with 596 diverse instructions across 26 subcategories, providing comprehensive coverage for
-              T2IS generation. Building on this, we propose T2IS-Eval, an evaluation framework that transforms user
-              instructions into multifaceted assessment criteria and employs effective evaluators to adaptively assess
-              consistency fulfillment between criteria and generated sets. Subsequently, we propose AutoT2IS, a
-              training-free framework that maximally leverages pretrained Diffusion Transformers' in-context
-              capabilities to harmonize visual elements to satisfy both image-level prompt alignment and set-level
-              visual consistency. Extensive experiments on T2IS-Bench reveal that diverse consistency challenges all
-              existing methods, while our AutoT2IS significantly outperforms current generalized and even specialized
-              approaches. Our method also demonstrates the ability to enable numerous underexplored real-world
-              applications, confirming its substantial practical value. All our data and code will be publicly
-              available.
+              Consistent image generation requires faithfully preserving identities, styles, and logical coherence across multiple images, which is essential for applications such as storytelling and character design. Supervised training approaches struggle with this task due to the lack of large-scale datasets capturing visual consistency and the complexity of modeling human perceptual preferences. In this paper, we argue that reinforcement learning (RL) offers a promising alternative by enabling models to learn complex and subjective visual criteria in a data-free manner. To achieve this, we introduce PaCo-RL, a comprehensive framework that combines a specialized consistency reward model with an efficient RL algorithm. The first component, PaCo-Reward, is a pairwise consistency evaluator trained on a large-scale dataset constructed via automated sub-figure pairing. It evaluates consistency through a generative, autoregressive scoring mechanism enhanced by task-aware instructions and CoT reasons. The second component, PaCo-GRPO, leverages a novel resolution-decoupled optimization strategy to substantially reduce RL cost, alongside a log-tamed multi-reward aggregation mechanism that ensures balanced and stable reward optimization. Extensive experiments across the two representative subtasks show that PaCo-Reward significantly improves alignment with human perceptions of visual consistency, and PaCo-GRPO achieves state-of-the-art consistency performance with improved training efficiency and stability. Together, these results highlight the promise of PaCo-RL as a practical and scalable solution for consistent image generation. We will release the code, dataset, and models.
             </p>
           </div>
         </div>
@@ -200,196 +161,56 @@
   </section>
   <!-- End paper abstract -->
 
-  <!-- Chart section -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3" style="margin-bottom: 10px;">T2IS-Bench</h2>
-          <div id="chart-container" style="width: 600px; height: 600px; margin: 0 auto; padding: 5px;">
-            <canvas id="myChart"></canvas>
-          </div>
-          <p class="content has-text-justified" style="margin-top: 10px; max-width: 800px; margin-left: auto; margin-right: auto;">
-            We introduce T2IS-Bench, a benchmark designed to comprehensively assess text-to-image synthesis models by reflecting real-world consistency requirements. The accompanying pie chart illustrates the balanced distribution of user instructions across 26 distinct subcategories, highlighting the benchmark's broad coverage and its utility in advancing evaluation practices for generative AI systems.
-          </p>
-          <script>
-            // 子类（内层）
-            const innerLabels = [
-              "MS","ME","MV","MP","PD",
-              "CS","PSD","FD","IP","HD",
-              "MSH","CSY","CB","NI","HN",
-              "GP","DP","CP","PL","AB","EI","EI","HP","PI","TG","AA"
-            ];
-            const innerData = [
-              25,21,21,28,22,
-              36,20,20,20,20,
-              20,20,20,24,21,
-              23,22,27,22,20,25,23,21,21,24,25
-            ];
-            const innerFullNames = [
-              "Multi-Scenario (25)", "Multi-Expression (21)", "Multi-view (21)", "Multi-pose (28)", "Portrait Design (22)",
-              "Creative Style (36)", "Poster Design (20)", "Font Design (20)", "IP Product (20)", "Home Decoration (20)",
-              "Movie Shot (20)", "Comic Story (20)", "Children Book (20)", "News Illustration (24)", "Hist. Narrative (21)",
-              "Growth Process (23)", "Draw Process (22)", "Cooking Process (27)", "Physical Law (22)", "Arch. Building (20)",
-              "Evolution Illustration (25)", "Education Illustration (23)", "Historical Panel (21)", "Product Instruction (21)", "Travel Guide (24)", "Activity Arrange (25)"
-            ];
-
-            // 父类（外层）
-            const outerLabels = ["CG", "DSG", "SG", "PG", "IG"];
-            const outerData = [117, 116, 105, 139, 114];
-            const outerFullNames = [
-              "Character Generation",
-              "Design Style Generation",
-              "Story Generation",
-              "Process Generation",
-              "Instruction Generation"
-            ];
-
-            const data = {
-              datasets: [
-                {
-                  label: '子类',
-                  data: innerData,
-                  backgroundColor: [
-                    // CG (Character Generation) - 浅蓝色系
-                    '#BBD6F3', '#BBD6F3', '#BBD6F3', '#BBD6F3', '#BBD6F3',
-                    // DSG (Design Style Generation) - 浅绿色系
-                    '#B8E2CF', '#B8E2CF', '#B8E2CF', '#B8E2CF', '#B8E2CF',
-                    // SG (Story Generation) - 浅紫色系
-                    '#D9C1DB', '#D9C1DB', '#D9C1DB', '#D9C1DB', '#D9C1DB',
-                    // PG (Process Generation) - 浅橙色系
-                    '#F3D1BE', '#F3D1BE', '#F3D1BE', '#F3D1BE', '#F3D1BE', '#F3D1BE',
-                    // IG (Instruction Generation) - 浅红色系
-                    '#F3BEBE', '#F3BEBE', '#F3BEBE', '#F3BEBE', '#F3BEBE', '#F3BEBE'
-                  ],
-                  datalabels: { 
-                    color: '#000000', 
-                    font: { size: 12, weight: 'bold' },
-                    anchor: 'center',
-                    align: 'center'
-                  },
-                  radius: '95%',  // 增加内圈大小
-                  weight: 1
-                },
-                {
-                  label: '父类',
-                  data: outerData,
-                  backgroundColor: [
-                    '#4A90E2',  // CG - 深蓝色
-                    '#56B794',  // DSG - 深绿色
-                    '#9B6B9D',  // SG - 深紫色
-                    '#E69B76',  // PG - 深橙色
-                    '#E67B7B'   // IG - 深红色
-                  ],
-                  datalabels: { 
-                    color: '#000000', 
-                    font: { size: 20, weight: 'bold' },
-                    anchor: 'center',
-                    align: 'center'
-                  },
-                  radius: '100%',  // 增加外圈大小
-                  weight: 1
-                }
-              ]
-            };
-
-            const config = {
-              type: 'doughnut',
-              data: data,
-              options: {
-                cutout: '0%',  // 将中心设置为实心
-                radius: '98%',  // 增加图表占比
-                layout: {
-                  padding: 0  // 移除图表内边距
-                },
-                plugins: {
-                  legend: { display: false },
-                  tooltip: {
-                    callbacks: {
-                      label: function(context) {
-                        if (context.datasetIndex === 0) {
-                          return innerFullNames[context.dataIndex] + '';
-                        } else {
-                          return outerFullNames[context.dataIndex] + ' (' + context.parsed + ')';
-                        }
-                      }
-                    }
-                  },
-                  datalabels: {
-                    formatter: function(value, context) {
-                      if (context.datasetIndex === 0) {
-                        return innerLabels[context.dataIndex];
-                      } else {
-                        return outerLabels[context.dataIndex];
-                      }
-                    }
-                  }
-                }
-              },
-              plugins: [ChartDataLabels]
-            };
-
-            new Chart(document.getElementById('myChart'), config);
-          </script>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 添加类别选择器和表格容器 -->
-  <div class="columns is-centered">
-    <div class="column is-10">
-        <h2 class="title is-3 has-text-centered" style="margin-bottom: 20px;">Leaderboard</h2>
-        <div class="box" style="padding: 1.25rem 1.25rem 0.5rem 1.25rem;">
-            <!-- 类别选择器改为横向布局 -->
-            <div class="category-selector" style="margin-bottom: 10px;">
-                <div class="tabs is-centered">
-                    <ul>
-                        <li class="is-active" data-category="All"><a>All</a></li>
-                        <li data-category="Character Generation"><a>Character Generation</a></li>
-                        <li data-category="Design Style Generation"><a>Design Style Generation</a></li>
-                        <li data-category="Story Generation"><a>Story Generation</a></li>
-                        <li data-category="Process Generation"><a>Process Generation</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- 表格容器 -->
-            <div class="table-container">
-                <table class="table is-narrow is-hoverable is-fullwidth custom-table" id="modelScoresTable">
-                    <thead>
-                        <tr class="header-top">
-                            <th rowspan="2" class="sortable left-align" data-field="model">Model</th>
-                            <th rowspan="2" class="sortable" data-field="aesthetics">Aesthetics</th>
-                            <th colspan="3" class="category-header">Prompt Alignment</th>
-                            <th colspan="3" class="category-header">Visual Consistency</th>
-                            <th rowspan="2" class="sortable" data-field="avg">Avg.</th>
-                        </tr>
-                        <tr class="header-bottom">
-                            <th class="sortable" data-field="pa_entity">Entity</th>
-                            <th class="sortable" data-field="pa_attribute">Attribute</th>
-                            <th class="sortable" data-field="pa_relation">Relation</th>
-                            <th class="sortable" data-field="vc_identity">Identity</th>
-                            <th class="sortable" data-field="vc_style">Style</th>
-                            <th class="sortable" data-field="vc_logic">Logic</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Table content will be dynamically populated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-  </div>
-
   <!-- Method Section -->
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Method</h2>
       <div class="content has-text-centered">
-        <img src="static/images/method/evaluation.png" alt="Evaluation Framework" style="width: 100%; margin-bottom: 2rem;"/>
-        <img src="static/images/method/overview.png" alt="Method Overview" style="width: 100%;"/>
+        <img src="static/images/method/dataset_pipeline_2.png" alt="Dataset Pipeline" style="width: 100%; margin-bottom: 2rem;"/>
+        <img src="static/images/method/RL_pipeline.png" alt="RL Pipeline" style="width: 100%;"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaderboard Section -->
+  <section class="section" style="padding: 4rem 2rem; background-color: #f5f5f5;">
+    <div class="container" style="max-width: 1400px; background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <h1 class="title is-2 has-text-centered" style="margin-bottom: 2rem;">Leaderboard</h1>
+      
+      <!-- 类别选择器 -->
+      <div class="category-selector" style="margin-bottom: 1.5rem;">
+        <div class="tabs is-centered is-boxed">
+          <ul>
+            <li class="is-active" data-category="EditReward-Bench">
+              <a>EditReward-Bench</a>
+            </li>
+            <li data-category="ConsistencyRank">
+              <a>ConsistencyRank</a>
+            </li>
+            <li data-category="T2IS-Bench">
+              <a>T2IS-Bench</a>
+            </li>
+            <li data-category="GEdit-Bench">
+              <a>GEdit-Bench</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 表格容器 -->
+      <div class="table-container">
+        <table class="table is-narrow is-hoverable is-fullwidth custom-table" id="modelScoresTable">
+          <thead>
+            <tr>
+              <th class="sortable left-align" data-field="model">Model</th>
+              <th class="sortable" data-field="prompt_following">Prompt Following</th>
+              <th class="sortable" data-field="consistency">Consistency</th>
+              <th class="sortable" data-field="overall">Overall</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -1353,18 +1174,142 @@
   
 
   <style>
+    /* Leaderboard 样式 */
     .tabs ul {
-        border-bottom-color: #dbdbdb;
+      border-bottom-color: #dbdbdb;
     }
+
     .tabs li {
-        cursor: pointer;
+      cursor: pointer;
     }
+
     .tabs li.is-active a {
-        border-bottom-color: #485fc7;
-        color: #485fc7;
+      border-bottom-color: #485fc7;
+      color: #485fc7;
     }
+
     .tabs a {
-        padding: 0.5em 2em;
+      padding: 0.5em 2em;
+    }
+
+    .table-container {
+      margin-top: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      border: 1px solid #dbdbdb;
+    }
+
+    .custom-table th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+      text-align: center !important;
+      padding: 0.75rem;
+      border: 1px solid #dbdbdb;
+      vertical-align: middle;
+    }
+
+    .custom-table td {
+      text-align: center;
+      padding: 0.75rem;
+      border: 1px solid #dbdbdb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .custom-table tbody tr:last-child td {
+      border-bottom: 1px solid #dbdbdb;
+    }
+
+    /* Model列宽度设置 */
+    .custom-table th:first-child,
+    .custom-table td:first-child {
+      width: 25%;
+      max-width: 250px;
+    }
+
+    /* 数据列宽度 */
+    .custom-table th:not(:first-child),
+    .custom-table td:not(:first-child) {
+      width: auto;
+    }
+
+    .custom-table tbody tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    /* Model列标题和内容左对齐 */
+    .left-align {
+      text-align: left !important;
+      padding-left: 1rem;
+    }
+    
+    .custom-table td:first-child {
+      text-align: left !important;
+      padding-left: 1rem;
+    }
+    
+    /* 确保其他表头居中 */
+    .custom-table th:not(.left-align) {
+      text-align: center !important;
+    }
+
+    .bold-value {
+      font-weight: bold;
+      color: #485fc7;
+    }
+
+    .second-value {
+      text-decoration: underline;
+    }
+
+    .category-header {
+      background-color: #e8e8e8;
+      font-weight: 700;
+    }
+
+    .sortable {
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+
+    .sortable:hover {
+      background-color: #e8e8e8;
+    }
+
+    .sortable::after {
+      content: '↕';
+      position: absolute;
+      right: 8px;
+      color: #999;
+    }
+
+    .sortable.sorted-asc::after {
+      content: '↑';
+      color: #485fc7;
+    }
+
+    .sortable.sorted-desc::after {
+      content: '↓';
+      color: #485fc7;
+    }
+
+    /* 分组标题行样式 */
+    .group-header {
+      background-color: #e8f4f8;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .group-header.open-source {
+      background-color: #f0f8e8;
     }
 
     /* 统一轮播图样式 */
@@ -1779,40 +1724,6 @@
       object-fit: contain;
     }
 
-    /* 表格排序样式 */
-    .sortable {
-      cursor: pointer;
-      position: relative;
-    }
-
-    .sortable::after {
-      content: '↕';  /* 默认显示双向箭头 */
-      position: absolute;
-      right: 8px;
-      color: #999;
-    }
-
-    .sortable.sorted-asc::after {
-      content: '↑';  /* 升序时显示向上箭头 */
-      color: #485fc7;
-    }
-
-    .sortable.sorted-desc::after {
-      content: '↓';  /* 降序时显示向下箭头 */
-      color: #485fc7;
-    }
-
-    /* 表格左对齐样式 */
-    .left-align {
-      text-align: left !important;
-    }
-
-    /* 表格加粗值样式 */
-    .bold-value {
-      font-weight: bold;
-      color: #485fc7;
-    }
-
     .carousel-container-3 .carousel-item-3:nth-child(7) .comparison-row {
       display: flex;
       width: 100%;
@@ -1840,104 +1751,1133 @@
 
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // 初始化类别选择器
-        const tabs = document.querySelectorAll('.tabs li');
-        
-        // 初始化表格显示 All 类别的数据
-        filterByCategory('All');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // 移除所有活动状态
-                tabs.forEach(t => t.classList.remove('is-active'));
-                // 设置当前选中状态
-                tab.classList.add('is-active');
-                // 获取类别并过滤表格
-                const category = tab.dataset.category;
-                filterByCategory(category);
-            });
-        });
+    // Leaderboard 数据和功能
+    // 定义模型类型
+    const modelTypes = {
+      "T2IS-Bench": {
+        "closed": ["GPT-4o", "Gemini 2.0 Flash", "AutoT2IS + GPT-4o", "Seedream 4.0"],
+        "open": []  // 其余都是开源
+      },
+      "GEdit-Bench": {
+        "closed": ["SeedEdit3.0", "GPT-Image-1"],
+        "open": []  // 其余都是开源
+      }
+    };
 
-        // 初始化排序功能
-        const headers = document.querySelectorAll('.sortable');
-        headers.forEach(header => {
-            header.addEventListener('click', function() {
-                const field = this.dataset.field;
-                const isAscending = !this.classList.contains('sorted-asc');
-                
-                // 移除所有排序指示器
-                headers.forEach(h => {
-                    h.classList.remove('sorted-asc', 'sorted-desc');
-                });
-                
-                // 添加新的排序指示器
-                this.classList.add(isAscending ? 'sorted-asc' : 'sorted-desc');
-                
-                sortTable(field, isAscending);
-            });
-        });
-    });
-
-    function filterByCategory(category) {
-        console.log('Selected category:', category); // 添加调试日志
-        const tableData = {
-            'All': [
-                ['SDXL-base', '4.12', '4.23', '4.15', '4.08', '4.21', '4.18', '4.16', '4.16'],
-                ['SDXL-refiner', '4.15', '4.25', '4.17', '4.10', '4.23', '4.20', '4.18', '4.18'],
-                ['SD2.1', '4.08', '4.19', '4.11', '4.04', '4.17', '4.14', '4.12', '4.12']
-            ],
-            'Character Generation': [
-                ['SDXL-base', '4.15', '4.26', '4.18', '4.11', '4.24', '4.21', '4.19', '4.19'],
-                ['SDXL-refiner', '4.18', '4.28', '4.20', '4.13', '4.26', '4.23', '4.21', '4.21'],
-                ['SD2.1', '4.11', '4.22', '4.14', '4.07', '4.20', '4.17', '4.15', '4.15']
-            ],
-            'Design Style Generation': [
-                ['SDXL-base', '4.14', '4.25', '4.17', '4.10', '4.23', '4.20', '4.18', '4.18'],
-                ['SDXL-refiner', '4.17', '4.27', '4.19', '4.12', '4.25', '4.22', '4.20', '4.20'],
-                ['SD2.1', '4.10', '4.21', '4.13', '4.06', '4.19', '4.16', '4.14', '4.14']
-            ],
-            'Story Generation': [
-                ['SDXL-base', '4.13', '4.24', '4.16', '4.09', '4.22', '4.19', '4.17', '4.17'],
-                ['SDXL-refiner', '4.16', '4.26', '4.18', '4.11', '4.24', '4.21', '4.19', '4.19'],
-                ['SD2.1', '4.09', '4.20', '4.12', '4.05', '4.18', '4.15', '4.13', '4.13']
-            ],
-            'Process Generation': [
-                ['SDXL-base', '4.11', '4.22', '4.14', '4.07', '4.20', '4.17', '4.15', '4.15'],
-                ['SDXL-refiner', '4.14', '4.24', '4.16', '4.09', '4.22', '4.19', '4.17', '4.17'],
-                ['SD2.1', '4.07', '4.18', '4.10', '4.03', '4.16', '4.13', '4.11', '4.11']
-            ]
-        };
-
-        const tbody = document.querySelector('#modelScoresTable tbody');
-        tbody.innerHTML = ''; // 清空表格
-
-        // 获取选中类别的数据
-        const data = tableData[category];
-        if (!data) {
-            console.error('No data found for category:', category); // 添加错误日志
-            return;
-        }
-
-        // 填充表格
-        data.forEach(row => {
-            const tr = document.createElement('tr');
-            row.forEach((cell, index) => {
-                const td = document.createElement('td');
-                td.textContent = cell;
-                if (index === 0) td.classList.add('left-align');
-                tr.appendChild(td);
-            });
-            tbody.appendChild(tr);
-        });
+    // 判断模型类型
+    function getModelType(benchmarkName, modelName) {
+      if (!modelTypes[benchmarkName]) return "open";
+      if (modelTypes[benchmarkName].closed.includes(modelName)) return "closed";
+      return "open";
     }
 
-    // 页面加载时显示 All 类别的数据
+    // 内嵌数据
+    const model_scores = {
+        "EditReward-Bench": {
+            "GPT-4.1": {
+                "Accuracy": {
+                    "Prompt Following": 0.673,
+                    "Consistency": 0.602,
+                    "Overall": 0.705
+                }
+            },
+            "GPT-5": {
+                "Accuracy": {
+                    "Prompt Following": 0.777,
+                    "Consistency": 0.669,
+                    "Overall": 0.755
+                }
+            },
+            "Gemini2.5-Pro": {
+                "Accuracy": {
+                    "Prompt Following": 0.703,
+                    "Consistency": 0.560,
+                    "Overall": 0.722
+                }
+            },
+            "Qwen2.5-VL-7B": {
+                "Accuracy": {
+                    "Prompt Following": 0.458,
+                    "Consistency": 0.325,
+                    "Overall": 0.432
+                }
+            },
+            "Qwen2.5-VL-32B": {
+                "Accuracy": {
+                    "Prompt Following": 0.498,
+                    "Consistency": 0.376,
+                    "Overall": 0.563
+                }
+            },
+            "Qwen2.5-VL-72B": {
+                "Accuracy": {
+                    "Prompt Following": 0.540,
+                    "Consistency": 0.435,
+                    "Overall": 0.621
+                }
+            },
+            "EditScore-7B": {
+                "Accuracy": {
+                    "Prompt Following": 0.592,
+                    "Consistency": 0.591,
+                    "Overall": 0.659
+                }
+            },
+            "EditScore-32B": {
+                "Accuracy": {
+                    "Prompt Following": 0.638,
+                    "Consistency": 0.556,
+                    "Overall": 0.680
+                }
+            },
+            "EditScore-72B": {
+                "Accuracy": {
+                    "Prompt Following": 0.635,
+                    "Consistency": 0.586,
+                    "Overall": 0.703
+                }
+            },
+            "PaCo-Reward-7B-Fast": {
+                "Accuracy": {
+                    "Prompt Following": 0.748,
+                    "Consistency": 0.697,
+                    "Overall": 0.728
+                }
+            },
+            "PaCo-Reward-7B": {
+                "Accuracy": {
+                    "Prompt Following": 0.777,
+                    "Consistency": 0.709,
+                    "Overall": 0.751
+                }
+            }
+        },
+        "ConsistencyRank": {
+            "Clip-I": {
+                "Accuracy": 0.394,
+                "tau": 0.178,
+                "rho": 0.206,
+                "T1-B1": 0.475
+            },
+            "DreamSim": {
+                "Accuracy": 0.403,
+                "tau": 0.184,
+                "rho": 0.214,
+                "T1-B1": 0.493
+            },
+            "InternVL3.5-8B": {
+                "Accuracy": 0.359,
+                "tau": 0.149,
+                "rho": 0.176,
+                "T1-B1": 0.420
+            },
+            "Qwen2.5-VL-7B": {
+                "Accuracy": 0.344,
+                "tau": 0.118,
+                "rho": 0.138,
+                "T1-B1": 0.401
+            },
+            "Qwen2.5-VL-32B": {
+                "Accuracy": 0.340,
+                "tau": 0.106,
+                "rho": 0.127,
+                "T1-B1": 0.395
+            },
+            "Qwen2.5-VL-72B": {
+                "Accuracy": 0.342,
+                "tau": 0.117,
+                "rho": 0.137,
+                "T1-B1": 0.398
+            },
+            "PaCo-Reward-7B-Fast": {
+                "Accuracy": 0.441,
+                "tau": 0.240,
+                "rho": 0.278,
+                "T1-B1": 0.544
+            },
+            "PaCo-Reward-7B": {
+                "Accuracy": 0.449,
+                "tau": 0.250,
+                "rho": 0.288,
+                "T1-B1": 0.557
+            }
+        },
+        "T2IS-Bench": {
+            "GPT-4o": {
+                "Aesthetics": 0.445,
+                "Prompt Alignment": {
+                    "Entity": 0.663,
+                    "Attribute": 0.683,
+                    "Relation": 0.693
+                },
+                "Visual Consistency": {
+                    "Identity": "0.400 / 0.792",
+                    "Style": "0.463 / 0.795",
+                    "Logic": "0.383 / 0.840"
+                },
+                "Avg.": "0.501 / 0.697"
+            },
+            "Gemini 2.0 Flash": {
+                "Aesthetics": 0.430,
+                "Prompt Alignment": {
+                    "Entity": 0.738,
+                    "Attribute": 0.747,
+                    "Relation": 0.743
+                },
+                "Visual Consistency": {
+                    "Identity": "0.428 / 0.750",
+                    "Style": "0.383 / 0.739",
+                    "Logic": "0.392 / 0.793"
+                },
+                "Avg.": "0.509 / 0.673"
+            },
+            "AutoT2IS + GPT-4o": {
+                "Aesthetics": 0.567,
+                "Prompt Alignment": {
+                    "Entity": 0.754,
+                    "Attribute": 0.761,
+                    "Relation": 0.763
+                },
+                "Visual Consistency": {
+                    "Identity": "0.441 / 0.806",
+                    "Style": "0.520 / 0.825",
+                    "Logic": "0.416 / 0.860"
+                },
+                "Avg.": "0.571 / 0.754"
+            },
+            "Seedream 4.0": {
+                "Aesthetics": 0.551,
+                "Prompt Alignment": {
+                    "Entity": 0.813,
+                    "Attribute": 0.800,
+                    "Relation": 0.805
+                },
+                "Visual Consistency": {
+                    "Identity": "0.486 / 0.809",
+                    "Style": "0.479 / 0.763",
+                    "Logic": "0.458 / 0.862"
+                },
+                "Avg.": "0.589 / 0.758"
+            },
+            "Gemini & SD3": {
+                "Aesthetics": 0.500,
+                "Prompt Alignment": {
+                    "Entity": 0.796,
+                    "Attribute": 0.794,
+                    "Relation": 0.789
+                },
+                "Visual Consistency": {
+                    "Identity": "0.287 / 0.640",
+                    "Style": "0.244 / 0.621",
+                    "Logic": "0.320 / 0.755"
+                },
+                "Avg.": "0.480 / 0.648"
+            },
+            "Gemini & Pixart": {
+                "Aesthetics": 0.447,
+                "Prompt Alignment": {
+                    "Entity": 0.743,
+                    "Attribute": 0.765,
+                    "Relation": 0.747
+                },
+                "Visual Consistency": {
+                    "Identity": "0.206 / 0.615",
+                    "Style": "0.279 / 0.638",
+                    "Logic": "0.268 / 0.737"
+                },
+                "Avg.": "0.440 / 0.617"
+            },
+            "Gemini & Hunyuan": {
+                "Aesthetics": 0.410,
+                "Prompt Alignment": {
+                    "Entity": 0.758,
+                    "Attribute": 0.774,
+                    "Relation": 0.765
+                },
+                "Visual Consistency": {
+                    "Identity": "0.197 / 0.605",
+                    "Style": "0.276 / 0.622",
+                    "Logic": "0.271 / 0.741"
+                },
+                "Avg.": "0.436 / 0.615"
+            },
+            "Gemini & FLUX.1-dev": {
+                "Aesthetics": 0.533,
+                "Prompt Alignment": {
+                    "Entity": 0.791,
+                    "Attribute": 0.790,
+                    "Relation": 0.786
+                },
+                "Visual Consistency": {
+                    "Identity": "0.249 / 0.636",
+                    "Style": "0.302 / 0.619",
+                    "Logic": "0.328 / 0.754"
+                },
+                "Avg.": "0.490 / 0.659"
+            },
+            "AutoT2IS": {
+                "Aesthetics": 0.520,
+                "Prompt Alignment": {
+                    "Entity": 0.729,
+                    "Attribute": 0.756,
+                    "Relation": 0.743
+                },
+                "Visual Consistency": {
+                    "Identity": "0.359 / 0.723",
+                    "Style": "0.414 / 0.737",
+                    "Logic": "0.356 / 0.794"
+                },
+                "Avg.": "0.515 / 0.686"
+            },
+            "FLUX.1-dev + PaCo-Reward-7B": {
+                "Aesthetics": 0.555,
+                "Prompt Alignment": {
+                    "Entity": 0.721,
+                    "Attribute": 0.732,
+                    "Relation": 0.731
+                },
+                "Visual Consistency": {
+                    "Identity": "0.508 / 0.837",
+                    "Style": "0.549 / 0.867",
+                    "Logic": "0.422 / 0.859"
+                },
+                "Avg.": "0.576 / 0.757"
+            }
+        },
+        "GEdit-Bench": {
+            "SeedEdit3.0": {
+                "EN-I": {
+                    "SC": 7.396,
+                    "PQ": 7.899,
+                    "Overall": 7.137
+                },
+                "EN": {
+                    "SC": 7.222,
+                    "PQ": 7.885,
+                    "Overall": 6.983
+                },
+                "CN-I": {
+                    "SC": 7.370,
+                    "PQ": 7.870,
+                    "Overall": 7.105
+                },
+                "CN": {
+                    "SC": 7.195,
+                    "PQ": 7.851,
+                    "Overall": 6.942
+                }
+            },
+            "GPT-Image-1": {
+                "EN-I": {
+                    "SC": 7.867,
+                    "PQ": 8.097,
+                    "Overall": 7.590
+                },
+                "EN": {
+                    "SC": 7.743,
+                    "PQ": 8.133,
+                    "Overall": 7.494
+                },
+                "CN-I": {
+                    "SC": 7.840,
+                    "PQ": 8.075,
+                    "Overall": 7.560
+                },
+                "CN": {
+                    "SC": 7.708,
+                    "PQ": 8.095,
+                    "Overall": 7.451
+                }
+            },
+            "OmniGen": {
+                "EN-I": {
+                "SC": 6.037,
+                "PQ": 5.856,
+                "Overall": 5.154
+                },
+                "EN": {
+                "SC": 5.879,
+                "PQ": 5.871,
+                "Overall": 5.005
+                },
+                "CN-I": {
+                "SC": 6.015,
+                "PQ": 5.830,
+                "Overall": 5.122
+                },
+                "CN": {
+                "SC": 5.850,
+                "PQ": 5.845,
+                "Overall": 4.976
+                }
+            },
+            "OmniGen2": {
+                "EN": {
+                "SC": 6.72,
+                "PQ": 7.20,
+                "Overall": 6.28
+                }
+            },
+            "OmniGen2 + EditScore": {
+                "EN": {
+                "SC": 7.20,
+                "PQ": 7.46,
+                "Overall": 6.68
+                }
+            },
+            "Step1X-Edit": {
+                "EN-I": {
+                "SC": 7.289,
+                "PQ": 6.962,
+                "Overall": 6.618
+                },
+                "EN": {
+                "SC": 7.131,
+                "PQ": 6.998,
+                "Overall": 6.444
+                },
+                "CN-I": {
+                "SC": 7.464,
+                "PQ": 7.076,
+                "Overall": 6.779
+                },
+                "CN": {
+                "SC": 7.647,
+                "PQ": 7.398,
+                "Overall": 6.983
+                }
+            },
+            "Step1X-Edit + EditReward": {
+                "EN-I": {
+                "SC": 7.895,
+                "PQ": 6.946,
+                "Overall": 7.131
+                },
+                "EN": {
+                "SC": 7.854,
+                "PQ": 6.931,
+                "Overall": 7.086
+                },
+                "CN-I": {
+                "SC": 7.757,
+                "PQ": 7.024,
+                "Overall": 7.074
+                },
+                "CN": {
+                "SC": 7.658,
+                "PQ": 6.995,
+                "Overall": 7.001
+                }
+            },
+            "FLUX.1-Kontext": {
+                "EN-I": {
+                "SC": 6.842,
+                "PQ": 6.888,
+                "Overall": 6.143
+                },
+                "EN": {
+                "SC": 6.599,
+                "PQ": 6.873,
+                "Overall": 5.956
+                }
+            },
+            "FLUX.1-Kontext + PaCo-Reward-7B": {
+                "EN-I": {
+                "SC": 7.279,
+                "PQ": 7.036,
+                "Overall": 6.636
+                },
+                "EN": {
+                "SC": 7.033,
+                "PQ": 7.088,
+                "Overall": 6.469
+                }
+            },
+            "Qwen-Image-Edit":{
+                "EN-I": {
+                    "SC": 7.746,
+                    "PQ": 7.805,
+                    "Overall": 7.307
+                },
+                "EN": {
+                    "SC": 7.642,
+                    "PQ": 7.807,
+                    "Overall": 7.223
+                },
+                "CN-I": {
+                    "SC": 7.727,
+                    "PQ": 7.977,
+                    "Overall": 7.344
+                },
+                "CN": {
+                    "SC": 7.633,
+                    "PQ": 7.938,
+                    "Overall": 7.264
+                }            
+            },
+            "Qwen-Image-Edit + PaCo-Reward-7B": {
+                "EN-I": {
+                    "SC": 7.799,
+                    "PQ": 8.053,
+                    "Overall": 7.451
+                },
+                "EN": {
+                    "SC": 7.693,
+                    "PQ": 7.987,
+                    "Overall": 7.325
+                },
+                "CN-I": {
+                    "SC": 7.866,
+                    "PQ": 8.125,
+                    "Overall": 7.520
+                },
+                "CN": {
+                    "SC": 7.678,
+                    "PQ": 8.093,
+                    "Overall": 7.366
+                }
+            }  
+        }   
+    };
+    
+    let currentMode = 'EditReward-Bench';
+
+    // 初始化标签切换功能
+    function initTabs() {
+      const tabs = document.querySelectorAll('.tabs li');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          const category = tab.dataset.category;
+          currentMode = category;
+          populateTable();
+        });
+      });
+    }
+
+    // 更新表头
+    function updateTableHeader() {
+      const thead = document.querySelector('#modelScoresTable thead');
+      
+      if (currentMode === 'T2IS-Bench') {
+        thead.innerHTML = `
+          <tr class="header-top">
+            <th rowspan="2" class="sortable left-align" data-field="model">Model</th>
+            <th rowspan="2" class="sortable" data-field="aesthetics">Aesthetics</th>
+            <th colspan="3" class="category-header">Prompt Alignment</th>
+            <th colspan="3" class="category-header">Visual Consistency</th>
+            <th rowspan="2" class="sortable" data-field="avg">Avg.</th>
+          </tr>
+          <tr class="header-bottom">
+            <th class="sortable" data-field="pa_entity">Entity</th>
+            <th class="sortable" data-field="pa_attribute">Attribute</th>
+            <th class="sortable" data-field="pa_relation">Relation</th>
+            <th class="sortable" data-field="vc_identity">Identity</th>
+            <th class="sortable" data-field="vc_style">Style</th>
+            <th class="sortable" data-field="vc_logic">Logic</th>
+          </tr>
+        `;
+      } else if (currentMode === 'EditReward-Bench') {
+        thead.innerHTML = `
+          <tr class="header-top">
+            <th rowspan="2" class="sortable left-align" data-field="model">Model</th>
+            <th colspan="3" class="category-header">Accuracy</th>
+          </tr>
+          <tr class="header-bottom">
+            <th class="sortable" data-field="prompt_following">Prompt Following</th>
+            <th class="sortable" data-field="consistency">Consistency</th>
+            <th class="sortable" data-field="overall">Overall</th>
+          </tr>
+        `;
+      } else if (currentMode === 'ConsistencyRank') {
+        thead.innerHTML = `
+          <tr>
+            <th class="sortable left-align" data-field="model">Model</th>
+            <th class="sortable" data-field="accuracy">Accuracy</th>
+            <th class="sortable" data-field="tau">Tau</th>
+            <th class="sortable" data-field="rho">Rho</th>
+            <th class="sortable" data-field="t1b1">T1-B1</th>
+          </tr>
+        `;
+      } else if (currentMode === 'GEdit-Bench') {
+        thead.innerHTML = `
+          <tr class="header-top">
+            <th rowspan="2" class="sortable left-align" data-field="model">Model</th>
+            <th colspan="3" class="category-header">EN-I</th>
+            <th colspan="3" class="category-header">EN</th>
+            <th colspan="3" class="category-header">CN-I</th>
+            <th colspan="3" class="category-header">CN</th>
+          </tr>
+          <tr class="header-bottom">
+            <th class="sortable" data-field="sc_eni">SC</th>
+            <th class="sortable" data-field="pq_eni">PQ</th>
+            <th class="sortable" data-field="overall_eni">Overall</th>
+            <th class="sortable" data-field="sc_en">SC</th>
+            <th class="sortable" data-field="pq_en">PQ</th>
+            <th class="sortable" data-field="overall_en">Overall</th>
+            <th class="sortable" data-field="sc_cni">SC</th>
+            <th class="sortable" data-field="pq_cni">PQ</th>
+            <th class="sortable" data-field="overall_cni">Overall</th>
+            <th class="sortable" data-field="sc_cn">SC</th>
+            <th class="sortable" data-field="pq_cn">PQ</th>
+            <th class="sortable" data-field="overall_cn">Overall</th>
+          </tr>
+        `;
+      }
+
+      initSorting();
+    }
+
+    // 填充表格数据
+    function populateTable() {
+      const tbody = document.querySelector('#modelScoresTable tbody');
+      tbody.innerHTML = '';
+      
+      const currentData = model_scores[currentMode];
+      if (!currentData || Object.keys(currentData).length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:2rem;">没有可用数据</td></tr>';
+        return;
+      }
+      
+      updateTableHeader();
+      
+      const rows = Object.entries(currentData);
+      
+      if (currentMode === 'T2IS-Bench') {
+        populateT2ISBench(rows, tbody);
+      } else if (currentMode === 'EditReward-Bench') {
+        populateEditRewardBench(rows, tbody);
+      } else if (currentMode === 'ConsistencyRank') {
+        populateConsistencyRank(rows, tbody);
+      } else if (currentMode === 'GEdit-Bench') {
+        populateGEditBench(rows, tbody);
+      }
+    }
+
+    // T2IS-Bench 数据填充
+    function populateT2ISBench(rows, tbody) {
+      // 按模型类型分组
+      const closedModels = rows.filter(([model, _]) => getModelType("T2IS-Bench", model) === "closed");
+      const openModels = rows.filter(([model, _]) => getModelType("T2IS-Bench", model) === "open");
+
+      // 收集所有列的数据
+      const columns = {
+        'Aesthetics': rows.map(([_, d]) => typeof d.Aesthetics === 'string' ? parseFloat(d.Aesthetics.split('/')[0]) : d.Aesthetics).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Entity': rows.map(([_, d]) => d["Prompt Alignment"].Entity).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Attribute': rows.map(([_, d]) => d["Prompt Alignment"].Attribute).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Relation': rows.map(([_, d]) => d["Prompt Alignment"].Relation).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Identity': rows.map(([_, d]) => typeof d["Visual Consistency"].Identity === 'string' ? parseFloat(d["Visual Consistency"].Identity.split('/')[0]) : d["Visual Consistency"].Identity).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Style': rows.map(([_, d]) => typeof d["Visual Consistency"].Style === 'string' ? parseFloat(d["Visual Consistency"].Style.split('/')[0]) : d["Visual Consistency"].Style).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Logic': rows.map(([_, d]) => typeof d["Visual Consistency"].Logic === 'string' ? parseFloat(d["Visual Consistency"].Logic.split('/')[0]) : d["Visual Consistency"].Logic).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Avg': rows.map(([_, d]) => typeof d["Avg."] === 'string' ? parseFloat(d["Avg."].split('/')[0]) : d["Avg."]).filter(v => v !== undefined && v !== null && !isNaN(v))
+      };
+
+      // 计算最大值和第二大值
+      const maxValuesAll = {};
+      const secondMaxValuesAll = {};
+      
+      Object.keys(columns).forEach(key => {
+        const sorted = [...columns[key]].sort((a, b) => b - a);
+        maxValuesAll[key] = sorted[0];
+        secondMaxValuesAll[key] = sorted[1];
+      });
+
+      // 添加闭源模型标题
+      if (closedModels.length > 0) {
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = '<td colspan="9" style="background-color: #e8f4f8; font-weight: bold; text-align: center; padding: 0.5rem;">Closed-source Models</td>';
+        tbody.appendChild(headerRow);
+
+        // 添加闭源模型数据
+        closedModels.forEach(([model, scores]) => {
+          const tr = document.createElement('tr');
+          tr.dataset.modelType = 'closed';
+          
+          // 用于比较的数值
+          const aestheticsNum = typeof scores.Aesthetics === 'string' ? parseFloat(scores.Aesthetics.split('/')[0]) : scores.Aesthetics;
+          const identityNum = typeof scores["Visual Consistency"].Identity === 'string' ? parseFloat(scores["Visual Consistency"].Identity.split('/')[0]) : scores["Visual Consistency"].Identity;
+          const styleNum = typeof scores["Visual Consistency"].Style === 'string' ? parseFloat(scores["Visual Consistency"].Style.split('/')[0]) : scores["Visual Consistency"].Style;
+          const logicNum = typeof scores["Visual Consistency"].Logic === 'string' ? parseFloat(scores["Visual Consistency"].Logic.split('/')[0]) : scores["Visual Consistency"].Logic;
+          const avgNum = typeof scores["Avg."] === 'string' ? parseFloat(scores["Avg."].split('/')[0]) : scores["Avg."];
+          
+          // 用于显示的值（保留原始格式）
+          const aestheticsDisplay = typeof scores.Aesthetics === 'string' ? scores.Aesthetics : formatNumber(scores.Aesthetics);
+          const identityDisplay = typeof scores["Visual Consistency"].Identity === 'string' ? scores["Visual Consistency"].Identity : formatNumber(scores["Visual Consistency"].Identity);
+          const styleDisplay = typeof scores["Visual Consistency"].Style === 'string' ? scores["Visual Consistency"].Style : formatNumber(scores["Visual Consistency"].Style);
+          const logicDisplay = typeof scores["Visual Consistency"].Logic === 'string' ? scores["Visual Consistency"].Logic : formatNumber(scores["Visual Consistency"].Logic);
+          const avgDisplay = typeof scores["Avg."] === 'string' ? scores["Avg."] : formatNumber(scores["Avg."]);
+
+          // 计算样式类
+          const getClass = (value, key) => {
+            if (value === maxValuesAll[key]) return 'bold-value';
+            if (value === secondMaxValuesAll[key]) return 'second-value';
+            return '';
+          };
+
+          tr.innerHTML = `
+            <td class="left-align">${model}</td>
+            <td class="${getClass(aestheticsNum, 'Aesthetics')}">${aestheticsDisplay}</td>
+            <td class="${getClass(scores["Prompt Alignment"].Entity, 'Entity')}">${formatNumber(scores["Prompt Alignment"].Entity)}</td>
+            <td class="${getClass(scores["Prompt Alignment"].Attribute, 'Attribute')}">${formatNumber(scores["Prompt Alignment"].Attribute)}</td>
+            <td class="${getClass(scores["Prompt Alignment"].Relation, 'Relation')}">${formatNumber(scores["Prompt Alignment"].Relation)}</td>
+            <td class="${getClass(identityNum, 'Identity')}">${identityDisplay}</td>
+            <td class="${getClass(styleNum, 'Style')}">${styleDisplay}</td>
+            <td class="${getClass(logicNum, 'Logic')}">${logicDisplay}</td>
+            <td class="${getClass(avgNum, 'Avg')}">${avgDisplay}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      // 添加开源模型标题
+      if (openModels.length > 0) {
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = '<td colspan="9" style="background-color: #f0f8e8; font-weight: bold; text-align: center; padding: 0.5rem;">Open-source Models</td>';
+        tbody.appendChild(headerRow);
+
+        // 添加开源模型数据
+        openModels.forEach(([model, scores]) => {
+          const tr = document.createElement('tr');
+          tr.dataset.modelType = 'open';
+          
+          // 用于比较的数值
+          const aestheticsNum = typeof scores.Aesthetics === 'string' ? parseFloat(scores.Aesthetics.split('/')[0]) : scores.Aesthetics;
+          const identityNum = typeof scores["Visual Consistency"].Identity === 'string' ? parseFloat(scores["Visual Consistency"].Identity.split('/')[0]) : scores["Visual Consistency"].Identity;
+          const styleNum = typeof scores["Visual Consistency"].Style === 'string' ? parseFloat(scores["Visual Consistency"].Style.split('/')[0]) : scores["Visual Consistency"].Style;
+          const logicNum = typeof scores["Visual Consistency"].Logic === 'string' ? parseFloat(scores["Visual Consistency"].Logic.split('/')[0]) : scores["Visual Consistency"].Logic;
+          const avgNum = typeof scores["Avg."] === 'string' ? parseFloat(scores["Avg."].split('/')[0]) : scores["Avg."];
+          
+          // 用于显示的值（保留原始格式）
+          const aestheticsDisplay = typeof scores.Aesthetics === 'string' ? scores.Aesthetics : formatNumber(scores.Aesthetics);
+          const identityDisplay = typeof scores["Visual Consistency"].Identity === 'string' ? scores["Visual Consistency"].Identity : formatNumber(scores["Visual Consistency"].Identity);
+          const styleDisplay = typeof scores["Visual Consistency"].Style === 'string' ? scores["Visual Consistency"].Style : formatNumber(scores["Visual Consistency"].Style);
+          const logicDisplay = typeof scores["Visual Consistency"].Logic === 'string' ? scores["Visual Consistency"].Logic : formatNumber(scores["Visual Consistency"].Logic);
+          const avgDisplay = typeof scores["Avg."] === 'string' ? scores["Avg."] : formatNumber(scores["Avg."]);
+
+          // 计算样式类
+          const getClass = (value, key) => {
+            if (value === maxValuesAll[key]) return 'bold-value';
+            if (value === secondMaxValuesAll[key]) return 'second-value';
+            return '';
+          };
+
+          tr.innerHTML = `
+            <td class="left-align">${model}</td>
+            <td class="${getClass(aestheticsNum, 'Aesthetics')}">${aestheticsDisplay}</td>
+            <td class="${getClass(scores["Prompt Alignment"].Entity, 'Entity')}">${formatNumber(scores["Prompt Alignment"].Entity)}</td>
+            <td class="${getClass(scores["Prompt Alignment"].Attribute, 'Attribute')}">${formatNumber(scores["Prompt Alignment"].Attribute)}</td>
+            <td class="${getClass(scores["Prompt Alignment"].Relation, 'Relation')}">${formatNumber(scores["Prompt Alignment"].Relation)}</td>
+            <td class="${getClass(identityNum, 'Identity')}">${identityDisplay}</td>
+            <td class="${getClass(styleNum, 'Style')}">${styleDisplay}</td>
+            <td class="${getClass(logicNum, 'Logic')}">${logicDisplay}</td>
+            <td class="${getClass(avgNum, 'Avg')}">${avgDisplay}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    // EditReward-Bench 数据填充
+    function populateEditRewardBench(rows, tbody) {
+      // 计算每列的所有值
+      const columns = {
+        'Prompt Following': rows.map(([_, s]) => s.Accuracy["Prompt Following"]).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Consistency': rows.map(([_, s]) => s.Accuracy.Consistency).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Overall': rows.map(([_, s]) => s.Accuracy.Overall).filter(v => v !== undefined && v !== null && !isNaN(v))
+      };
+      
+      // 计算每列的最大值和第二大值
+      const maxValues = {};
+      const secondMaxValues = {};
+      
+      Object.keys(columns).forEach(key => {
+        const sorted = [...columns[key]].sort((a, b) => b - a);
+        maxValues[key] = sorted[0];
+        secondMaxValues[key] = sorted[1];
+      });
+      
+      rows.forEach(([model, scores]) => {
+        const tr = document.createElement('tr');
+        const accuracy = scores.Accuracy;
+        
+        const pfValue = accuracy["Prompt Following"];
+        const consValue = accuracy.Consistency;
+        const overallValue = accuracy.Overall;
+        
+        const pfClass = pfValue === maxValues['Prompt Following'] ? 'bold-value' : (pfValue === secondMaxValues['Prompt Following'] ? 'second-value' : '');
+        const consClass = consValue === maxValues['Consistency'] ? 'bold-value' : (consValue === secondMaxValues['Consistency'] ? 'second-value' : '');
+        const overallClass = overallValue === maxValues['Overall'] ? 'bold-value' : (overallValue === secondMaxValues['Overall'] ? 'second-value' : '');
+        
+        tr.innerHTML = `
+          <td class="left-align">${model}</td>
+          <td class="${pfClass}">${formatNumber(pfValue)}</td>
+          <td class="${consClass}">${formatNumber(consValue)}</td>
+          <td class="${overallClass}">${formatNumber(overallValue)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ConsistencyRank 数据填充
+    function populateConsistencyRank(rows, tbody) {
+      // 计算每列的所有值
+      const columns = {
+        'Accuracy': rows.map(([_, s]) => s.Accuracy).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'tau': rows.map(([_, s]) => s.tau).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'rho': rows.map(([_, s]) => s.rho).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'T1-B1': rows.map(([_, s]) => s["T1-B1"]).filter(v => v !== undefined && v !== null && !isNaN(v))
+      };
+      
+      // 计算每列的最大值和第二大值
+      const maxValues = {};
+      const secondMaxValues = {};
+      
+      Object.keys(columns).forEach(key => {
+        const sorted = [...columns[key]].sort((a, b) => b - a);
+        maxValues[key] = sorted[0];
+        secondMaxValues[key] = sorted[1];
+      });
+      
+      rows.forEach(([model, scores]) => {
+        const tr = document.createElement('tr');
+        
+        const accValue = scores.Accuracy;
+        const tauValue = scores.tau;
+        const rhoValue = scores.rho;
+        const t1b1Value = scores["T1-B1"];
+        
+        const accClass = accValue === maxValues['Accuracy'] ? 'bold-value' : (accValue === secondMaxValues['Accuracy'] ? 'second-value' : '');
+        const tauClass = tauValue === maxValues['tau'] ? 'bold-value' : (tauValue === secondMaxValues['tau'] ? 'second-value' : '');
+        const rhoClass = rhoValue === maxValues['rho'] ? 'bold-value' : (rhoValue === secondMaxValues['rho'] ? 'second-value' : '');
+        const t1b1Class = t1b1Value === maxValues['T1-B1'] ? 'bold-value' : (t1b1Value === secondMaxValues['T1-B1'] ? 'second-value' : '');
+        
+        tr.innerHTML = `
+          <td class="left-align">${model}</td>
+          <td class="${accClass}">${formatNumber(accValue)}</td>
+          <td class="${tauClass}">${formatNumber(tauValue)}</td>
+          <td class="${rhoClass}">${formatNumber(rhoValue)}</td>
+          <td class="${t1b1Class}">${formatNumber(t1b1Value)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // GEdit-Bench 数据填充
+    function populateGEditBench(rows, tbody) {
+      // 按模型类型分组
+      const closedModels = rows.filter(([model, _]) => getModelType("GEdit-Bench", model) === "closed");
+      const openModels = rows.filter(([model, _]) => getModelType("GEdit-Bench", model) === "open");
+
+      // 收集所有数据用于计算最大值和第二大值
+      const allDataRows = [];
+      rows.forEach(([model, scores]) => {
+        const firstKey = Object.keys(scores)[0];
+        const isNested = scores[firstKey] && typeof scores[firstKey] === 'object' && !scores[firstKey].hasOwnProperty('SC');
+        
+        if (isNested) {
+          Object.entries(scores).forEach(([subModel, langVersions]) => {
+            allDataRows.push({
+              eniData: langVersions["EN-I"] || {},
+              enData: langVersions["EN"] || {},
+              cniData: langVersions["CN-I"] || {},
+              cnData: langVersions["CN"] || {}
+            });
+          });
+        } else {
+          allDataRows.push({
+            eniData: scores["EN-I"] || {},
+            enData: scores["EN"] || {},
+            cniData: scores["CN-I"] || {},
+            cnData: scores["CN"] || {}
+          });
+        }
+      });
+
+      // 计算每列的最大值和第二大值
+      const columns = {
+        'SC_ENI': allDataRows.map(d => d.eniData.SC).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'PQ_ENI': allDataRows.map(d => d.eniData.PQ).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Overall_ENI': allDataRows.map(d => d.eniData.Overall).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'SC_EN': allDataRows.map(d => d.enData.SC).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'PQ_EN': allDataRows.map(d => d.enData.PQ).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Overall_EN': allDataRows.map(d => d.enData.Overall).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'SC_CNI': allDataRows.map(d => d.cniData.SC).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'PQ_CNI': allDataRows.map(d => d.cniData.PQ).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Overall_CNI': allDataRows.map(d => d.cniData.Overall).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'SC_CN': allDataRows.map(d => d.cnData.SC).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'PQ_CN': allDataRows.map(d => d.cnData.PQ).filter(v => v !== undefined && v !== null && !isNaN(v)),
+        'Overall_CN': allDataRows.map(d => d.cnData.Overall).filter(v => v !== undefined && v !== null && !isNaN(v))
+      };
+
+      const maxValues = {};
+      const secondMaxValues = {};
+      
+      Object.keys(columns).forEach(key => {
+        const sorted = [...columns[key]].sort((a, b) => b - a);
+        maxValues[key] = sorted[0];
+        secondMaxValues[key] = sorted[1];
+      });
+
+      // 渲染一组模型
+      function renderModelGroup(models, modelType) {
+        models.forEach(([model, scores]) => {
+          // 检查是否是嵌套结构（包含子模型）
+          const firstKey = Object.keys(scores)[0];
+          const isNested = scores[firstKey] && typeof scores[firstKey] === 'object' && !scores[firstKey].hasOwnProperty('SC');
+          
+          if (isNested) {
+            // 嵌套结构：展开所有子模型
+            Object.entries(scores).forEach(([subModel, langVersions]) => {
+              const tr = document.createElement('tr');
+              tr.dataset.modelType = modelType;
+              
+              const eniData = langVersions["EN-I"] || {};
+              const enData = langVersions["EN"] || {};
+              const cniData = langVersions["CN-I"] || {};
+              const cnData = langVersions["CN"] || {};
+              
+              // 计算每个值的样式
+              const getClass = (value, key) => {
+                if (value === maxValues[key]) return 'bold-value';
+                if (value === secondMaxValues[key]) return 'second-value';
+                return '';
+              };
+              
+              tr.innerHTML = `
+                <td class="left-align">${model} / ${subModel}</td>
+                <td class="${getClass(eniData.SC, 'SC_ENI')}">${formatNumber(eniData.SC)}</td>
+                <td class="${getClass(eniData.PQ, 'PQ_ENI')}">${formatNumber(eniData.PQ)}</td>
+                <td class="${getClass(eniData.Overall, 'Overall_ENI')}">${formatNumber(eniData.Overall)}</td>
+                <td class="${getClass(enData.SC, 'SC_EN')}">${formatNumber(enData.SC)}</td>
+                <td class="${getClass(enData.PQ, 'PQ_EN')}">${formatNumber(enData.PQ)}</td>
+                <td class="${getClass(enData.Overall, 'Overall_EN')}">${formatNumber(enData.Overall)}</td>
+                <td class="${getClass(cniData.SC, 'SC_CNI')}">${formatNumber(cniData.SC)}</td>
+                <td class="${getClass(cniData.PQ, 'PQ_CNI')}">${formatNumber(cniData.PQ)}</td>
+                <td class="${getClass(cniData.Overall, 'Overall_CNI')}">${formatNumber(cniData.Overall)}</td>
+                <td class="${getClass(cnData.SC, 'SC_CN')}">${formatNumber(cnData.SC)}</td>
+                <td class="${getClass(cnData.PQ, 'PQ_CN')}">${formatNumber(cnData.PQ)}</td>
+                <td class="${getClass(cnData.Overall, 'Overall_CN')}">${formatNumber(cnData.Overall)}</td>
+              `;
+              tbody.appendChild(tr);
+            });
+          } else {
+            // 普通结构：直接显示模型数据
+            const tr = document.createElement('tr');
+            tr.dataset.modelType = modelType;
+            
+            const eniData = scores["EN-I"] || {};
+            const enData = scores["EN"] || {};
+            const cniData = scores["CN-I"] || {};
+            const cnData = scores["CN"] || {};
+            
+            // 计算每个值的样式
+            const getClass = (value, key) => {
+              if (value === maxValues[key]) return 'bold-value';
+              if (value === secondMaxValues[key]) return 'second-value';
+              return '';
+            };
+            
+            tr.innerHTML = `
+              <td class="left-align">${model}</td>
+              <td class="${getClass(eniData.SC, 'SC_ENI')}">${formatNumber(eniData.SC)}</td>
+              <td class="${getClass(eniData.PQ, 'PQ_ENI')}">${formatNumber(eniData.PQ)}</td>
+              <td class="${getClass(eniData.Overall, 'Overall_ENI')}">${formatNumber(eniData.Overall)}</td>
+              <td class="${getClass(enData.SC, 'SC_EN')}">${formatNumber(enData.SC)}</td>
+              <td class="${getClass(enData.PQ, 'PQ_EN')}">${formatNumber(enData.PQ)}</td>
+              <td class="${getClass(enData.Overall, 'Overall_EN')}">${formatNumber(enData.Overall)}</td>
+              <td class="${getClass(cniData.SC, 'SC_CNI')}">${formatNumber(cniData.SC)}</td>
+              <td class="${getClass(cniData.PQ, 'PQ_CNI')}">${formatNumber(cniData.PQ)}</td>
+              <td class="${getClass(cniData.Overall, 'Overall_CNI')}">${formatNumber(cniData.Overall)}</td>
+              <td class="${getClass(cnData.SC, 'SC_CN')}">${formatNumber(cnData.SC)}</td>
+              <td class="${getClass(cnData.PQ, 'PQ_CN')}">${formatNumber(cnData.PQ)}</td>
+              <td class="${getClass(cnData.Overall, 'Overall_CN')}">${formatNumber(cnData.Overall)}</td>
+            `;
+            tbody.appendChild(tr);
+          }
+        });
+      }
+
+      // 添加闭源模型标题和数据
+      if (closedModels.length > 0) {
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = '<td colspan="13" style="background-color: #e8f4f8; font-weight: bold; text-align: center; padding: 0.5rem;">Closed-source Models</td>';
+        tbody.appendChild(headerRow);
+        renderModelGroup(closedModels, 'closed');
+      }
+
+      // 添加开源模型标题和数据
+      if (openModels.length > 0) {
+        const headerRow = document.createElement('tr');
+        headerRow.innerHTML = '<td colspan="13" style="background-color: #f0f8e8; font-weight: bold; text-align: center; padding: 0.5rem;">Open-source Models</td>';
+        tbody.appendChild(headerRow);
+        renderModelGroup(openModels, 'open');
+      }
+    }
+
+    // 初始化排序功能
+    function initSorting() {
+      const headers = document.querySelectorAll('.sortable');
+      headers.forEach(header => {
+        header.addEventListener('click', function() {
+          const field = this.dataset.field;
+          const isAscending = !this.classList.contains('sorted-asc');
+          
+          headers.forEach(h => {
+            h.classList.remove('sorted-asc', 'sorted-desc');
+          });
+          
+          this.classList.add(isAscending ? 'sorted-asc' : 'sorted-desc');
+          
+          sortTable(field, isAscending);
+        });
+      });
+    }
+
+    // 排序功能
+    function sortTable(field, ascending = true) {
+      const tbody = document.querySelector('#modelScoresTable tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      
+      // 对于T2IS-Bench和GEdit-Bench，需要分组排序
+      if (currentMode === 'T2IS-Bench' || currentMode === 'GEdit-Bench') {
+        // 分离标题行和数据行
+        const headerRows = rows.filter(row => row.cells.length === 1 || row.cells[0].getAttribute('colspan'));
+        const dataRows = rows.filter(row => row.cells.length > 1 && !row.cells[0].getAttribute('colspan'));
+        
+        // 按模型类型分组
+        const closedRows = dataRows.filter(row => row.dataset.modelType === 'closed');
+        const openRows = dataRows.filter(row => row.dataset.modelType === 'open');
+        
+        // 排序函数
+        const sortFunction = (a, b) => {
+          let aValue, bValue;
+          
+          if (field === 'model') {
+            aValue = a.cells[0].textContent;
+            bValue = b.cells[0].textContent;
+            return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+          } else {
+            const index = getColumnIndex(field);
+            aValue = parseFloat(a.cells[index].textContent);
+            bValue = parseFloat(b.cells[index].textContent);
+            
+            if (isNaN(aValue)) aValue = -Infinity;
+            if (isNaN(bValue)) bValue = -Infinity;
+            
+            return ascending ? aValue - bValue : bValue - aValue;
+          }
+        };
+        
+        // 分别排序
+        closedRows.sort(sortFunction);
+        openRows.sort(sortFunction);
+        
+        // 重新组合
+        tbody.innerHTML = '';
+        
+        if (closedRows.length > 0) {
+          const closedHeader = document.createElement('tr');
+          closedHeader.innerHTML = currentMode === 'T2IS-Bench' 
+            ? '<td colspan="9" style="background-color: #e8f4f8; font-weight: bold; text-align: center; padding: 0.5rem;">Closed-source Models</td>'
+            : '<td colspan="13" style="background-color: #e8f4f8; font-weight: bold; text-align: center; padding: 0.5rem;">Closed-source Models</td>';
+          tbody.appendChild(closedHeader);
+          closedRows.forEach(row => tbody.appendChild(row));
+        }
+        
+        if (openRows.length > 0) {
+          const openHeader = document.createElement('tr');
+          openHeader.innerHTML = currentMode === 'T2IS-Bench'
+            ? '<td colspan="9" style="background-color: #f0f8e8; font-weight: bold; text-align: center; padding: 0.5rem;">Open-source Models</td>'
+            : '<td colspan="13" style="background-color: #f0f8e8; font-weight: bold; text-align: center; padding: 0.5rem;">Open-source Models</td>';
+          tbody.appendChild(openHeader);
+          openRows.forEach(row => tbody.appendChild(row));
+        }
+      } else {
+        // 其他表格正常排序
+        rows.sort((a, b) => {
+          let aValue, bValue;
+          
+          if (field === 'model') {
+            aValue = a.cells[0].textContent;
+            bValue = b.cells[0].textContent;
+            return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+          } else {
+            const index = getColumnIndex(field);
+            aValue = parseFloat(a.cells[index].textContent);
+            bValue = parseFloat(b.cells[index].textContent);
+            
+            if (isNaN(aValue)) aValue = -Infinity;
+            if (isNaN(bValue)) bValue = -Infinity;
+            
+            return ascending ? aValue - bValue : bValue - aValue;
+          }
+        });
+
+        tbody.innerHTML = '';
+        rows.forEach(row => tbody.appendChild(row));
+      }
+    }
+
+    // 获取列索引
+    function getColumnIndex(field) {
+      const fieldMap = {
+        // 通用
+        'model': 0,
+        // EditReward-Bench
+        'prompt_following': 1,
+        'consistency': 2,
+        'overall': 3,
+        // ConsistencyRank
+        'accuracy': 1,
+        'tau': 2,
+        'rho': 3,
+        't1b1': 4,
+        // T2IS-Bench
+        'aesthetics': 1,
+        'pa_entity': 2,
+        'pa_attribute': 3,
+        'pa_relation': 4,
+        'vc_identity': 5,
+        'vc_style': 6,
+        'vc_logic': 7,
+        'avg': 8,
+        // GEdit-Bench
+        'sc_eni': 1,
+        'pq_eni': 2,
+        'overall_eni': 3,
+        'sc_en': 4,
+        'pq_en': 5,
+        'overall_en': 6,
+        'sc_cni': 7,
+        'pq_cni': 8,
+        'overall_cni': 9,
+        'sc_cn': 10,
+        'pq_cn': 11,
+        'overall_cn': 12
+      };
+      return fieldMap[field] || 0;
+    }
+
+    // 格式化数字
+    function formatNumber(num) {
+      if (num === undefined || num === null || isNaN(num)) {
+        return '-';
+      }
+      if (typeof num === 'number') {
+        return num.toFixed(3);
+      }
+      return num || '-';
+    }
+
+    // 页面加载时初始化 Leaderboard
     document.addEventListener('DOMContentLoaded', function() {
-        filterByCategory('All');
+      initTabs();
+      populateTable();
     });
 
-
+    // Carousel 功能
     document.addEventListener('DOMContentLoaded', function () {
       // 初始化第一个轮播图
       function initCarousel(containerClass, itemClass, buttonClass, indicatorsClass) {
@@ -2011,522 +2951,6 @@
       initCarousel('carousel-container-2', 'carousel-item-2', 'carousel-button-2', 'carousel-indicators-2');
       initCarousel('carousel-container-3', 'carousel-item-3', 'carousel-button-3', 'carousel-indicators-3');
     });
-
-    let currentMode = 'All';
-
-    const model_scores = {
-        "All": {
-            "Anole": {
-                "Aesthetics": 0.170,
-                "Prompt Alignment": {
-                    "Entity": 0.534,
-                    "Attribute": 0.611,
-                    "Relation": 0.570
-                },
-                "Visual Consistency": {
-                    "Identity": 0.115,
-                    "Style": 0.148,
-                    "Logic": 0.090
-                },
-                "Avg.": 0.264
-            },
-            "Show-o": {
-                "Aesthetics": 0.206,
-                "Prompt Alignment": {
-                    "Entity": 0.780,
-                    "Attribute": 0.785,
-                    "Relation": 0.776
-                },
-                "Visual Consistency": {
-                    "Identity": 0.233,
-                    "Style": 0.287,
-                    "Logic": 0.285
-                },
-                "Avg.": 0.264
-            },
-            "Janus-Pro": {
-                "Aesthetics": 0.333,
-                "Prompt Alignment": {
-                    "Entity": 0.787,
-                    "Attribute": 0.785,
-                    "Relation": 0.781
-                },
-                "Visual Consistency": {
-                    "Identity": 0.224,
-                    "Style": 0.272,
-                    "Logic": 0.300
-                },
-                "Avg.": 0.435
-            },
-            "Gemini & SD3": {
-                "Aesthetics": 0.500,
-                "Prompt Alignment": {
-                    "Entity": 0.796,
-                    "Attribute": 0.794,
-                    "Relation": 0.789
-                },
-                "Visual Consistency": {
-                    "Identity": 0.287,
-                    "Style": 0.244,
-                    "Logic": 0.320
-                },
-                "Avg.": 0.480
-            },
-            "Gemini & Pixart": {
-                "Aesthetics": 0.447,
-                "Prompt Alignment": {
-                    "Entity": 0.743,
-                    "Attribute": 0.765,
-                    "Relation": 0.747
-                },
-                "Visual Consistency": {
-                    "Identity": 0.206,
-                    "Style": 0.279,
-                    "Logic": 0.268
-                },
-                "Avg.": 0.440
-            },
-            "Gemini & Hunyuan": {
-                "Aesthetics": 0.410,
-                "Prompt Alignment": {
-                    "Entity": 0.758,
-                    "Attribute": 0.774,
-                    "Relation": 0.765
-                },
-                "Visual Consistency": {
-                    "Overall": 0.774,
-                    "Identity": 0.197,
-                    "Style": 0.276,
-                    "Logic": 0.271
-                },
-                "Avg.": 0.436
-            },
-            "Gemini & Flux-1": {
-                "Aesthetics": 0.533,
-                "Prompt Alignment": {
-                    "Entity": 0.791,
-                    "Attribute": 0.790,
-                    "Relation": 0.786
-                },
-                "Visual Consistency": {
-                    "Identity": 0.249,
-                    "Style": 0.302,
-                    "Logic": 0.328
-                },
-                "Avg.": 0.490
-            },
-            "ChatDit": {
-                "Aesthetics": 0.414,
-                "Prompt Alignment": {
-                    "Entity": 0.717,
-                    "Attribute": 0.726,
-                    "Relation": 0.726
-                },
-                "Visual Consistency": {
-                    "Identity": 0.296,
-                    "Style": 0.326,
-                    "Logic": 0.310
-                },
-                "Avg.": 0.455
-            },
-            "ISG-Agent": {
-                "Aesthetics": 0.256,
-                "Prompt Alignment": {
-                    "Entity": 0.667,
-                    "Attribute": 0.703,
-                    "Relation": 0.682
-                },
-                "Visual Consistency": {
-                    "Identity": 0.146,
-                    "Style": 0.178,
-                    "Logic": 0.163
-                },
-                "Avg.": 0.338
-            },
-            "AutoT2IS (ours)": {
-                "Aesthetics": 0.520,
-                "Prompt Alignment": {
-                    "Entity": 0.729,
-                    "Attribute": 0.756,
-                    "Relation": 0.743
-                },
-                "Visual Consistency": {
-                    "Identity": 0.359,
-                    "Style": 0.414,
-                    "Logic": 0.356
-                },
-                "Avg.": 0.515
-            },
-            "Gemini 2.0 Flash": {
-                "Aesthetics": 0.430,
-                "Prompt Alignment": {
-                    "Entity": 0.738,
-                    "Attribute": 0.747,
-                    "Relation": 0.743
-                },
-                "Visual Consistency": {
-                    "Identity": 0.428,
-                    "Style": 0.383,
-                    "Logic": 0.392
-                },
-                "Avg.": 0.509
-            },
-            "GPT-4o": {
-                "Aesthetics": 0.445,
-                "Prompt Alignment": {
-                    "Entity": 0.663,
-                    "Attribute": 0.683,
-                    "Relation": 0.693
-                },
-                "Visual Consistency": {
-                    "Identity": 0.400,
-                    "Style": 0.463,
-                    "Logic": 0.383
-                },
-                "Avg.": 0.501
-            },
-            "AutoT2IS + GPT-4o": {
-                "Aesthetics": 0.567,
-                "Prompt Alignment": {
-                    "Entity": 0.754,
-                    "Attribute": 0.761,
-                    "Relation": 0.763
-                },
-                "Visual Consistency": {
-                    "Identity": 0.441,
-                    "Style": 0.520,
-                    "Logic": 0.416
-                },
-                "Avg.": 0.571
-            }
-        },
-        "Character Generation": {
-            "PhotoMaker": {
-                "Aesthetics": 0.413,
-                "Prompt Alignment": {
-                    "Entity": 0.793,
-                    "Attribute": 0.799,
-                    "Relation": 0.762
-                },
-                "Visual Consistency": {
-                    "Identity": 0.482,
-                    "Style": 0.458,
-                    "Logic": 0.450
-                },
-                "Avg.": 0.552
-            },
-            "OnePrompt": {
-                "Aesthetics": 0.600,
-                "Prompt Alignment": {
-                    "Entity": 0.805,
-                    "Attribute": 0.807,
-                    "Relation": 0.766
-                },
-                "Visual Consistency": {
-                    "Identity": 0.520,
-                    "Style": 0.512,
-                    "Logic": 0.470
-                },
-                "Avg.": 0.590
-            },
-            "X-Flux": {
-                "Aesthetics": 0.428,
-                "Prompt Alignment": {
-                    "Entity": 0.834,
-                    "Attribute": 0.804,
-                    "Relation": 0.780
-                },
-                "Visual Consistency": {
-                    "Identity": 0.531,
-                    "Style": 0.529,
-                    "Logic": 0.521
-                },
-                "Avg.": 0.553
-            },
-            "AutoT2IS (ours)": {
-                "Aesthetics": 0.557,
-                "Prompt Alignment": {
-                    "Entity": 0.798,
-                    "Attribute": 0.788,
-                    "Relation": 0.764
-                },
-                "Visual Consistency": {
-                    "Identity": 0.609,
-                    "Style": 0.520,
-                    "Logic": 0.509
-                },
-                "Avg.": 0.619
-            }
-        },
-        "Design Style Generation": {
-            "IPAdapter-Flux": {
-                "Aesthetics": 0.514,
-                "Prompt Alignment": {
-                    "Entity": 0.856,
-                    "Attribute": 0.833,
-                    "Relation": 0.846
-                },
-                "Visual Consistency": {
-                    "Identity": 0.386,
-                    "Style": 0.455,
-                    "Logic": 0.517
-                },
-                "Avg.": 0.582
-            },
-            "AutoT2IS (ours)": {
-                "Aesthetics": 0.475,
-                "Prompt Alignment": {
-                    "Entity": 0.789,
-                    "Attribute": 0.791,
-                    "Relation": 0.792
-                },
-                "Visual Consistency": {
-                    "Identity": 0.339,
-                    "Style": 0.391,
-                    "Logic": 0.478
-                },
-                "Avg.": 0.533
-            }
-        },
-        "Story Generation": {
-            "ICLora-Story": {
-                "Aesthetics": 0.408,
-                "Prompt Alignment": {
-                    "Entity": 0.711,
-                    "Attribute": 0.739,
-                    "Relation": 0.702
-                },
-                "Visual Consistency": {
-                    "Identity": 0.078,
-                    "Style": 0.190,
-                    "Logic": 0.119
-                },
-                "Avg.": 0.361
-            },
-            "StoryDiffusion": {
-                "Aesthetics": 0.581,
-                "Prompt Alignment": {
-                    "Entity": 0.684,
-                    "Attribute": 0.728,
-                    "Relation": 0.670
-                },
-                "Visual Consistency": {
-                    "Identity": 0.182,
-                    "Style": 0.207,
-                    "Logic": 0.141
-                },
-                "Avg.": 0.413
-            },
-            "Story-Adapter": {
-                "Aesthetics": 0.578,
-                "Prompt Alignment": {
-                    "Entity": 0.749,
-                    "Attribute": 0.766,
-                    "Relation": 0.734
-                },
-                "Visual Consistency": {
-                    "Identity": 0.181,
-                    "Style": 0.328,
-                    "Logic": 0.226
-                },
-                "Avg.": 0.463
-            },
-            "AutoT2IS (ours)": {
-                "Aesthetics": 0.534,
-                "Prompt Alignment": {
-                    "Entity": 0.629,
-                    "Attribute": 0.698,
-                    "Relation": 0.660
-                },
-                "Visual Consistency": {
-                    "Identity": 0.262,
-                    "Style": 0.405,
-                    "Logic": 0.237
-                },
-                "Avg.": 0.456
-            }
-        },
-        "Process Generation": {
-            "MakeAnything": {
-                "Aesthetics": 0.358,
-                "Prompt Alignment": {
-                    "Entity": 0.636,
-                    "Attribute": 0.665,
-                    "Relation": 0.652
-                },
-                "Visual Consistency": {
-                    "Identity": 0.329,
-                    "Style": 0.340,
-                    "Logic": 0.222
-                },
-                "Avg.": 0.408
-            },
-            "AutoT2IS (ours)": {
-                "Aesthetics": 0.578,
-                "Prompt Alignment": {
-                    "Entity": 0.727,
-                    "Attribute": 0.754,
-                    "Relation": 0.739
-                },
-                "Visual Consistency": {
-                    "Identity": 0.314,
-                    "Style": 0.346,
-                    "Logic": 0.274
-                },
-                "Avg.": 0.493
-            }
-        }
-    };
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // 初始化类别选择器
-        const categorySelect = document.getElementById('categorySelect');
-        categorySelect.value = currentMode;
-        
-        populateTable();
-        
-        const headers = document.querySelectorAll('.sortable');
-        headers.forEach(header => {
-            header.addEventListener('click', function() {
-                const field = this.dataset.field;
-                const isAscending = !this.classList.contains('sorted-asc');
-                
-                // 移除所有排序指示器
-                headers.forEach(h => {
-                    h.classList.remove('sorted-asc', 'sorted-desc');
-                });
-                
-                // 添加新的排序指示器
-                this.classList.add(isAscending ? 'sorted-asc' : 'sorted-desc');
-                
-                sortTable(field, isAscending);
-            });
-        });
-    });
-
-    function populateTable() {
-        const tbody = document.querySelector('#modelScoresTable tbody');
-        tbody.innerHTML = ''; // 清空表格内容
-        
-        const currentData = model_scores[currentMode];
-        if (!currentData || Object.keys(currentData).length === 0) {
-            return; // 如果没有数据，直接返回
-        }
-        
-        const rows = Object.entries(currentData);
-        
-        // 找到每列的最大值
-        const maxValues = {
-            'Aesthetics': Math.max(...rows.map(([_, d]) => d.Aesthetics)),
-            'Entity': Math.max(...rows.map(([_, d]) => d["Prompt Alignment"].Entity)),
-            'Attribute': Math.max(...rows.map(([_, d]) => d["Prompt Alignment"].Attribute)),
-            'Relation': Math.max(...rows.map(([_, d]) => d["Prompt Alignment"].Relation)),
-            'Identity': Math.max(...rows.map(([_, d]) => d["Visual Consistency"].Identity)),
-            'Style': Math.max(...rows.map(([_, d]) => d["Visual Consistency"].Style)),
-            'Logic': Math.max(...rows.map(([_, d]) => d["Visual Consistency"].Logic)),
-            'Avg': Math.max(...rows.map(([_, d]) => d["Avg."]))
-        };
-
-        rows.forEach(([model, scores]) => {
-            const tr = document.createElement('tr');
-            if (model.includes('AutoT2IS')) {
-                tr.classList.add('highlight-row');
-            }
-
-            const isMaxAesthetics = scores.Aesthetics === maxValues.Aesthetics;
-            const isMaxEntity = scores["Prompt Alignment"].Entity === maxValues.Entity;
-            const isMaxAttribute = scores["Prompt Alignment"].Attribute === maxValues.Attribute;
-            const isMaxRelation = scores["Prompt Alignment"].Relation === maxValues.Relation;
-            const isMaxIdentity = scores["Visual Consistency"].Identity === maxValues.Identity;
-            const isMaxStyle = scores["Visual Consistency"].Style === maxValues.Style;
-            const isMaxLogic = scores["Visual Consistency"].Logic === maxValues.Logic;
-            const isMaxAvg = scores["Avg."] === maxValues.Avg;
-
-            tr.innerHTML = `
-                <td class="left-align">${model}</td>
-                <td class="${isMaxAesthetics ? 'bold-value' : ''}">${formatNumber(scores.Aesthetics)}</td>
-                <td class="${isMaxEntity ? 'bold-value' : ''}">${formatNumber(scores["Prompt Alignment"].Entity)}</td>
-                <td class="${isMaxAttribute ? 'bold-value' : ''}">${formatNumber(scores["Prompt Alignment"].Attribute)}</td>
-                <td class="${isMaxRelation ? 'bold-value' : ''}">${formatNumber(scores["Prompt Alignment"].Relation)}</td>
-                <td class="${isMaxIdentity ? 'bold-value' : ''}">${formatNumber(scores["Visual Consistency"].Identity)}</td>
-                <td class="${isMaxStyle ? 'bold-value' : ''}">${formatNumber(scores["Visual Consistency"].Style)}</td>
-                <td class="${isMaxLogic ? 'bold-value' : ''}">${formatNumber(scores["Visual Consistency"].Logic)}</td>
-                <td class="${isMaxAvg ? 'bold-value' : ''}">${formatNumber(scores["Avg."])}</td>
-            `;
-            tbody.appendChild(tr);
-        });
-    }
-
-    function filterByCategory(category) {
-        currentMode = category;
-        populateTable();
-    }
-
-    function formatNumber(num) {
-        return num.toFixed(3);
-    }
-
-    function getColumnIndex(field) {
-        const fieldMap = {
-            'model': 0,
-            'aesthetics': 1,
-            'pa_entity': 2,
-            'pa_attribute': 3,
-            'pa_relation': 4,
-            'vc_identity': 5,
-            'vc_style': 6,
-            'vc_logic': 7,
-            'avg': 8
-        };
-        return fieldMap[field];
-    }
-
-    function sortTable(field, ascending = true) {
-        const tbody = document.querySelector('#modelScoresTable tbody');
-        const rows = Array.from(tbody.querySelectorAll('tr'));
-        
-        // 记录每一行的初始位置
-        const initialPositions = rows.map(row => {
-            const rect = row.getBoundingClientRect();
-            return rect.top;
-        });
-        
-        // 对行进行排序
-        rows.sort((a, b) => {
-            let aValue, bValue;
-            
-            if (field === 'model') {
-                aValue = a.cells[0].textContent;
-                bValue = b.cells[0].textContent;
-                return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
-            } else {
-                const index = getColumnIndex(field);
-                aValue = parseFloat(a.cells[index].textContent);
-                bValue = parseFloat(b.cells[index].textContent);
-                return ascending ? aValue - bValue : bValue - aValue;
-            }
-        });
-
-        // 将排序后的行添加到表格中
-        rows.forEach(row => tbody.appendChild(row));
-        
-        // 获取排序后的位置并设置动画
-        rows.forEach((row, index) => {
-            const newPosition = row.getBoundingClientRect().top;
-            const initialPosition = initialPositions[rows.indexOf(row)];
-            const delta = initialPosition - newPosition;
-            
-            // 设置初始位置
-            requestAnimationFrame(() => {
-                row.style.transform = `translateY(${delta}px)`;
-                
-                // 在下一帧移动到新位置
-                requestAnimationFrame(() => {
-                    row.style.transform = '';
-                });
-            });
-        });
-    }
   </script>
 
 
